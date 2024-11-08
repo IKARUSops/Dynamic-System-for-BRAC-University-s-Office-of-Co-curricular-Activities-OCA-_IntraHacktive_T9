@@ -2,6 +2,7 @@
 .home-section img, .home-section video .Card{
     width: 418;
     height: 800;
+    margin: auto;
 }
 
 .home-section {

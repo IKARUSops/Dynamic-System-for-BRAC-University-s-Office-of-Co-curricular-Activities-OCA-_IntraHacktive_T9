@@ -2,10 +2,13 @@
 .slide {
     position: relative;
     text-align: left;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    max-width: 80%;
 }
 
 .slide-image {
-    width: 95%;
+    width: 100%;
     height: auto;
     aspect-ratio: 18 / 5;
 }

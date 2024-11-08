@@ -6,6 +6,10 @@ import CustomNavbar from './components/Navbar';
 import Auth from './components/Auth';
 
 
+
+
+
+
 function App() {
     return (
         <Router>

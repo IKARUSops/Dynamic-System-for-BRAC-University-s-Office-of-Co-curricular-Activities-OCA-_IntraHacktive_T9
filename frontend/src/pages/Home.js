@@ -5,6 +5,9 @@ import Testimonials from '../components/Testimonials';
 import VisualsSection from '../components/VisualsSection';
 import axios from 'axios';
 
+
+
+
 function Home() {
     const [clubs, setClubs] = useState([]);
 
@@ -37,6 +40,7 @@ function Home() {
             </header>
             <section id="features" className="home-section">
                 <h2>Features</h2>
+                
                 <Slideshow />
             </section>
             <VisualsSection />
