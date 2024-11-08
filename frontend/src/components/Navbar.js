@@ -1,11 +1,27 @@
 import React from 'react';
+import { Navbar, Nav, Container} from 'react-bootstrap';
+import './Navbar.css';
+import { Link } from 'react-router-dom';
 
-function Navbar() {
+function CustomNavbar() {
     return (
-        <nav style={{ padding: '10px', backgroundColor: 'rgba(0, 0, 0, 0.7)' }}>
-            <h1 style={{ color: '#fff' }}>BRACU OCA Management</h1>
-        </nav>
+        <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+            <Container>
+                <Navbar.Brand href="#home">BRACU OCA Management</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="ms-auto">
+                        <Nav.Link as={Link} to="/#features">Features</Nav.Link>
+                        <Nav.Link as={Link} to="/#visuals">How It Works</Nav.Link>
+                        <Nav.Link as={Link} to="/#testimonials">Testimonials</Nav.Link>
+                        <Nav.Link as={Link} to="/auth">Get Started</Nav.Link>
+                    </Nav>
+                    
+                    
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 }
 
-export default Navbar;
+export default CustomNavbar;

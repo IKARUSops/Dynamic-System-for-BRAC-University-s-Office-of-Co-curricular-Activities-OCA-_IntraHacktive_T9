@@ -1,3 +1,7 @@
+/* App.css */
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 body {
   margin: 0;
   padding: 0;
@@ -7,6 +11,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  backdrop-filter: blur(8px); 
 }
 
 .app-container {

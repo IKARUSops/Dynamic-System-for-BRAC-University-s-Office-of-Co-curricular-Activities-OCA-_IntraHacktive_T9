@@ -1,0 +1,15 @@
+/* VisualsSection.css */
+.home-section img, .home-section video .Card{
+    width: 418;
+    height: 800;
+}
+
+.home-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.home-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
