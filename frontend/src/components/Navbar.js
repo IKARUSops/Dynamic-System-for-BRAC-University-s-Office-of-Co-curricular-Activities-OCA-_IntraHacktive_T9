@@ -21,6 +21,9 @@ function CustomNavbar() {
                 </Navbar.Collapse>
             </Container>
         </Navbar>
+
+        
+
     );
 }
 
