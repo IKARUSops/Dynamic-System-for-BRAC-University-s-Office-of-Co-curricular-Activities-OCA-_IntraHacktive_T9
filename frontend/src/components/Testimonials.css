@@ -5,6 +5,8 @@
     justify-content: center;
     gap: 20px;
     padding: 20px;
+    backdrop-filter: blur(8px); 
+    background-color: #0040806c;
 }
 
 .testimonial-card {
@@ -22,6 +24,8 @@
     height: 180px;
     border-radius: 50%;
     margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .testimonial-text {

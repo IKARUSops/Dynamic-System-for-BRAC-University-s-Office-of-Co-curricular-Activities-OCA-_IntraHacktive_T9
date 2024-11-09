@@ -8,7 +8,7 @@ function CustomNavbar() {
         <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
             <Container>
                 <Navbar.Brand href="#home">BRACU OCA Management</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
                         <Nav.Link as={Link} to="/#features">Features</Nav.Link>

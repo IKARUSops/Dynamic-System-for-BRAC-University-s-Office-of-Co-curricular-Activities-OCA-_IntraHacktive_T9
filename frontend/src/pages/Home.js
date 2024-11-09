@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Home.css';
 import Slideshow from '../components/Slideshow';
 import Testimonials from '../components/Testimonials';
 import VisualsSection from '../components/VisualsSection';
-import axios from 'axios';
 import OCADashboard from './OCADashboar';
 
 
@@ -11,20 +10,7 @@ import OCADashboard from './OCADashboar';
 
 
 function Home() {
-    const [clubs, setClubs] = useState([]);
-
-    useEffect(() => {
-        const fetchClubs = async () => {
-            try {
-                const response = await axios.get('/api/clubs');
-                setClubs(response.data);
-            } catch (error) {
-                console.error('Error fetching clubs:', error);
-            }
-        };
-
-        fetchClubs();
-    }, []);
+    
 
     return (
         <div className="home">
@@ -36,20 +22,20 @@ function Home() {
                 
             </header>
             {/* <OCADashboard /> */}
-            <section id="features" className="home-section">
+            <div id="features" className="home-section">
                 <h2>Features</h2>
                 
                 <Slideshow />
-            </section>
-            <section id="visuals" className="home-section">
-                <h2>How to Use</h2>
+            </div>
+            <div id="visuals" className="home-section">
+              
                 <VisualsSection />
-            </section>
+            </div>
             
-            <section id="testimonials" className="home-section">
+            <div id="testimonials" className="home-section">
                 <h2>What Our Users Say</h2>
                 <Testimonials />
-            </section>
+            </div>
             <footer className="home-footer">
                 <p>&copy; 2024 BRAC University. All rights reserved.</p>
             </footer>

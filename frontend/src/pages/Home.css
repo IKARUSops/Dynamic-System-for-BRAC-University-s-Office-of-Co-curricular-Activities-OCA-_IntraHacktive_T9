@@ -26,6 +26,7 @@
 
 .home-section {
     padding: 20px;
+    backdrop-filter: blur(8px); 
 }
 
 .home-section h2 {
