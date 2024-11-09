@@ -3,7 +3,7 @@ import './Home.css';
 import Slideshow from '../components/Slideshow';
 import Testimonials from '../components/Testimonials';
 import VisualsSection from '../components/VisualsSection';
-import OCADashboard from './OCADashboar';
+import OCADashboard from '../components/OCADashboar';
 
 
 

@@ -15,6 +15,7 @@ function CustomNavbar() {
                         <Nav.Link as={Link} to="/#visuals">How It Works</Nav.Link>
                         <Nav.Link as={Link} to="/#testimonials">Testimonials</Nav.Link>
                         <Nav.Link as={Link} to="/auth">Get Started</Nav.Link>
+                        <Nav.Link as={Link} to="/ocadashboar">OCADashboard</Nav.Link>
                     </Nav>
                     
                     

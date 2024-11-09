@@ -4,7 +4,7 @@ import './App.css';
 import Home from './pages/Home';
 import CustomNavbar from './components/Navbar';
 import Auth from './components/Auth';
-
+import OCADashboard from './components/OCADashboar';
 
 
 
@@ -17,11 +17,7 @@ function App() {
                 <CustomNavbar />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/" element={<Home />} />
-                    <Route path="/" element={<Home />} />
-                    <Route path="/" element={<Home />} />
-                    <Route path="/" element={<Home />} />
-                    <Route path="/" element={<Home />} />
+                    <Route path="/ocadashboar" element={<OCADashboard />} />
                     <Route path="/auth" element={<Auth />} />
                 </Routes>
             </div>

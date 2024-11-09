@@ -5,36 +5,53 @@ import { FaHome, FaCog, FaUser, FaEnvelope, FaQuestionCircle } from 'react-icons
 
 function OCADashboard() {
     return (
-        <div className="flex h-screen bg-gray-200 backdrop-blur-sm bg-opacity-50">
+        <div className="flex flex-1 h-screen bg-gray-200 backdrop-blur-sm bg-opacity-50">
             {/* Sidebar */}
-            <div className="transition-all duration-300 ease-in-out hover:w-1/4 w-20 h-full bg-gradient-to-r from-purple-100 to-blue-200 p-6 hover:overflow-visible flex flex-col items-center">
-                <div className="flex flex-col items-center space-y-6">
-                    {/* Icons - Always visible */}
-                    <div className="text-2xl text-gray-700">
-                        <FaHome />
-                    </div>
-                    <div className="text-2xl text-gray-700">
-                        <FaCog />
-                    </div>
-                    <div className="text-2xl text-gray-700">
-                        <FaUser />
-                    </div>
-                    <div className="text-2xl text-gray-700">
-                        <FaEnvelope />
-                    </div>
-                    <div className="text-2xl text-gray-700">
-                        <FaQuestionCircle />
-                    </div>
-                </div>
-                {/* Text labels that hide when collapsed */}
-                <div className="transition-all duration-300 ease-in-out mt-4 flex flex-col space-y-4 text-sm text-gray-700 hover:block">
-                    <div className="hidden hover:block">Home</div>
-                    <div className="hidden hover:block">Settings</div>
-                    <div className="hidden hover:block">Profile</div>
-                    <div className="hidden hover:block">Messages</div>
-                    <div className="hidden hover:block">Help</div>
-                </div>
+            <div className="group transition-all duration-300 ease-in-out hover:w-1/4 w-20 h-full bg-gradient-to-r from-purple-100 to-blue-200 p-6 hover:overflow-visible flex flex-col items-center">
+    {/* Dashboard Title */}
+    <div className="hidden group-hover:block text-lg font-bold text-gray-700 mt-6">
+        Dashboard
+    </div>
+    
+    <div className="flex flex-col items-start space-y-6 mt-6">
+        {/* Icons and Text */}
+        <div className="flex items-center space-x-2">
+            <div className="text-2xl text-gray-700">
+                <FaHome />
             </div>
+            <div className="hidden group-hover:block text-sm text-gray-700">Home</div>
+        </div>
+        
+        <div className="flex items-center space-x-2">
+            <div className="text-2xl text-gray-700">
+                <FaCog />
+            </div>
+            <div className="hidden group-hover:block text-sm text-gray-700">Settings</div>
+        </div>
+
+        <div className="flex items-center space-x-2">
+            <div className="text-2xl text-gray-700">
+                <FaUser />
+            </div>
+            <div className="hidden group-hover:block text-sm text-gray-700">Profile</div>
+        </div>
+
+        <div className="flex items-center space-x-2">
+            <div className="text-2xl text-gray-700">
+                <FaEnvelope />
+            </div>
+            <div className="hidden group-hover:block text-sm text-gray-700">Messages</div>
+        </div>
+
+        <div className="flex items-center space-x-2">
+            <div className="text-2xl text-gray-700">
+                <FaQuestionCircle />
+            </div>
+            <div className="hidden group-hover:block text-sm text-gray-700">Help</div>
+        </div>
+    </div>
+</div>
+
 
             {/* Main Content */}
             <div className="w-full h-full flex items-center justify-center p-0">
@@ -59,4 +76,3 @@ function OCADashboard() {
 
 export default OCADashboard;
 
-<OCADashboard />
