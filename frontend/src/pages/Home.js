@@ -4,6 +4,8 @@ import Slideshow from '../components/Slideshow';
 import Testimonials from '../components/Testimonials';
 import VisualsSection from '../components/VisualsSection';
 import axios from 'axios';
+import OCADashboard from './OCADashboar';
+
 
 
 
@@ -33,6 +35,7 @@ function Home() {
                 <p>Our dynamic system simplifies event management, room booking, and budget tracking for all BRAC University clubs. Say goodbye to delays and inefficiencies!</p>
                 
             </header>
+            {/* <OCADashboard /> */}
             <section id="features" className="home-section">
                 <h2>Features</h2>
                 
