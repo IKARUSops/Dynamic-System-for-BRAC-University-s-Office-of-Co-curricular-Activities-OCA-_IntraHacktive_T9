@@ -23,6 +23,7 @@ function App() {
             <div className="app-container">
                 <CustomNavbar />
                 <Routes>
+                    
                     <Route path="/" element={<Home />} />
                     <Route path="/ocadashboar" element={<OCADashboard />} />
                     <Route path="/ClubDashboard" element={<ClubDashboardDashboard />} />
