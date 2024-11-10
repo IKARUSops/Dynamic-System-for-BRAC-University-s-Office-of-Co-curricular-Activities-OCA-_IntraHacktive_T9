@@ -17,6 +17,8 @@ import ReportForm from './components/ReportForm'; // Import Report Form
 import DataAnalytics from './components/DataAnalytics'; // Import Data Analytics Page
 import ClubList from './components/ClubList';
 import ClubDetails from './components/ClubDetails';
+import Report from './components/Report'; // Import your Report component
+import AdminTicketPage from './components/AdminTicketPage'; // Adjust the import path according to your file structure
 
 function App() {
     return (
@@ -48,6 +50,8 @@ function App() {
                     <Route path="/data-analytics" element={<DataAnalytics />} />
                     <Route path="/club-details" element={<ClubList />} />
                     <Route path="/club-details/:clubId" element={<ClubDetails />} />
+                    <Route path="/reports" element={<Report />} /> {/* Route for Reports page */}
+                    <Route path="/tickets" element={<AdminTicketPage />} />
                 </Routes>
             </div>
         </Router>

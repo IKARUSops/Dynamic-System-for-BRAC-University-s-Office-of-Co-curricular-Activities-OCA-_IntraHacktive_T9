@@ -23,6 +23,12 @@ function ClubDashboard() {
     const handleClubClick = () => {
         navigate("/club-details");
     };   
+    const handleReportsClick = () => {
+        navigate("/reports");
+    }; 
+    const handleTicketsClick = () => {
+        navigate("/tickets");
+    }; 
 
     return (
         <div className="flex w-full h-screen bg-gray-900 backdrop-blur-sm bg-opacity-80">
@@ -53,8 +59,8 @@ function ClubDashboard() {
                 <div className="grid h-full w-full grid-cols-4 grid-rows-3 gap-3 p-12 xl:m-64 lg:m-32 md:m-16">
                     <DashboardCard color="from-gray-700 to-gray-600" title="Events" onClick={handleEventClick} />
                     <DashboardCard color="from-gray-700 to-gray-600" title="Club List" onClick={handleClubClick}/>
-                    <DashboardCard color="from-gray-700 to-gray-600" title="Room Booking" />
-                    <DashboardCard color="from-gray-700 to-gray-600" title="Budget" />
+                    <DashboardCard color="from-gray-700 to-gray-600" title="Reports" onClick={handleReportsClick}/>
+                    <DashboardCard color="from-gray-700 to-gray-600" title="Tickets"  onClick={handleTicketsClick}/>
                     <DashboardCard color="from-gray-700 to-gray-600" title="Analytics" />
                 </div>
             </div>
