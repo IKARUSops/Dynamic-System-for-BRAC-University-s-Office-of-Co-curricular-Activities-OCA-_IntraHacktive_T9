@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { FaHome, FaCog, FaUser, FaEnvelope, FaQuestionCircle, FaBell } from 'react-icons/fa';
 import './OCADashboard.css';
 
-
 function OCADashboard() {
     // State for controlling the collapsible notification sidebar
     const [isNotificationSidebarOpen, setIsNotificationSidebarOpen] = useState(false);
@@ -11,7 +10,7 @@ function OCADashboard() {
     const toggleNotificationSidebar = () => setIsNotificationSidebarOpen(!isNotificationSidebarOpen);
 
     return (
-        <div className="flex flex-1 h-screen bg-gray-200 backdrop-blur-sm bg-opacity-50">
+        <div className="flex w-full h-screen bg-gray-200 backdrop-blur-sm bg-opacity-50">
             {/* Sidebar (Left) */}
             <div className="group transition-all duration-300 ease-in-out hover:w-1/4 w-20 h-full bg-gradient-to-r from-purple-100 to-blue-200 p-6 hover:overflow-visible flex flex-col items-center">
                 {/* Dashboard Title */}
@@ -76,12 +75,18 @@ function OCADashboard() {
                 </div>
             </div>
 
-            {/* Notification Sidebar (Right) */}
-            <div className={`notification-sidebar ${isNotificationSidebarOpen ? 'open' : ''}`}>
-                <div className="flex flex-col items-center" onClick={toggleNotificationSidebar}>
+           {/* Notification Sidebar (Right) */}
+            <div
+                className={`notification-sidebar ${isNotificationSidebarOpen ? 'open' : ''}`}
+                onMouseEnter={() => setIsNotificationSidebarOpen(true)}  // Opens sidebar on hover
+                onMouseLeave={() => setIsNotificationSidebarOpen(false)} // Closes sidebar when mouse leaves
+            >
+                {/* Bell icon container */}
+                <div className="flex flex-col items-center">
                     <FaBell className="text-3xl text-gray-700" />
-                    
                 </div>
+
+                {/* Notification content, shown when the sidebar is open */}
                 {isNotificationSidebarOpen && (
                     <div className="notification-content mt-4">
                         <p className="text-gray-700">New updates are available!</p>
@@ -90,6 +95,7 @@ function OCADashboard() {
                     </div>
                 )}
             </div>
+
         </div>
     );
 }
