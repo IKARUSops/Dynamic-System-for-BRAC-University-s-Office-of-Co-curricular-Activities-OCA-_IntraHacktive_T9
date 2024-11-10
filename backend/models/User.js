@@ -11,6 +11,13 @@ const userSchema = new Schema({
   club_id: [{ type: Schema.Types.ObjectId, ref: 'Club' }],
   
   // Additional fields for Students
+  username: { 
+    type: String, 
+    required: function() { return this.user_type === 'Student'; },  // Make required only for students
+    unique: true,  
+    trim: true,  
+  },
+
   role: { type: String, enum: ["club_member", "club_leader"] },
   club_positions: [{
     club_id: { type: Schema.Types.ObjectId, ref: 'Club' },

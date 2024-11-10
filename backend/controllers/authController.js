@@ -10,12 +10,18 @@ const generateToken = (userId) => {
 // Club Account Login (Student/Faculty)
 export const clubLogin = async (req, res) => {
   try {
-    const { gsuit, password } = req.body;
+    const { username, password } = req.body;
 
-    // Find the user by G-Suit email (gsuit in this case)
-    const user = await User.findOne({ gsuit });
+    // Find the user by username (only for students)
+    const user = await User.findOne({ username });
+    
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Ensure the user is a student (optional validation based on your needs)
+    if (user.user_type !== 'Student') {
+      return res.status(400).json({ message: 'Not a Student account' });
     }
 
     // Compare the password
@@ -34,7 +40,7 @@ export const clubLogin = async (req, res) => {
       user: {
         id: user._id,
         name: user.name,
-        gsuit: user.gsuit,
+        username: user.username,
         user_type: user.user_type,
         role: user.role,
       },
