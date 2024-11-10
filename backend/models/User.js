@@ -1,30 +1,44 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
+const { Schema } = mongoose;
 
-const userSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true
-    },
-    email: {
-        type: String,
-        unique: true,
-        sparse: true // To allow either username or email as unique fields
-    },
-    password: {
-        type: String,
-        required: true
-    }
+// User Schema with Subtypes for Student, OCAEmployee, and Faculty
+const userSchema = new Schema({
+  name: { type: String, required: true },
+  gsuit: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  user_type: { type: String, enum: ["Student", "OCAEmployee", "Faculty"], required: true },
+  club_id: [{ type: Schema.Types.ObjectId, ref: 'Club' }],
+  
+  // Additional fields for Students
+  role: { type: String, enum: ["club_member", "club_leader"] },
+  club_positions: [{
+    club_id: { type: Schema.Types.ObjectId, ref: 'Club' },
+    position: { type: String, enum: ["member", "leader"] }
+  }],
+  
+  // Additional fields for OCAEmployee
+  position: { type: String, enum: ["Room Allocator", "Finance Manager", "Approval Manager"] },
+  department: { type: String },
+  responsibilities: [{ type: String }],
+  
+  // Additional fields for Faculty
+  faculty_role: { type: String, enum: ["supervisor", "non_supervisor"] },
+  supervised_clubs: [{ type: Schema.Types.ObjectId, ref: 'Club' }]
+}, {
+  timestamps: true
 });
 
-// Hash password before saving
+// Password hashing middleware
 userSchema.pre('save', async function(next) {
-    if (!this.isModified('password')) return next();
-    this.password = await bcrypt.hash(this.password, 10);
+    if (this.isModified('password')) {
+      const salt = await bcrypt.genSalt(10);
+      this.password = await bcrypt.hash(this.password, salt);
+    }
     next();
 });
 
 const User = mongoose.model('User', userSchema);
-module.exports = User;
+
+// ESM export
+export default User;
