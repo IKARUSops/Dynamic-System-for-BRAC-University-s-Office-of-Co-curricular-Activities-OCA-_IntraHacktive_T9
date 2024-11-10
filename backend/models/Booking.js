@@ -1,3 +1,6 @@
+import mongoose from 'mongoose';
+const { Schema } = mongoose;
+
 const bookingSchema = new Schema({
     room: { type: Schema.Types.ObjectId, ref: 'Room', required: true },
     event: { type: Schema.Types.ObjectId, ref: 'Event' },

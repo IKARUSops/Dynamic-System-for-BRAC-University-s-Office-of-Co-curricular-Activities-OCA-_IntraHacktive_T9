@@ -1,11 +1,10 @@
 import mongoose from 'mongoose';
-import autoIncrement from 'mongoose-auto-increment';
+import { v4 as uuidv4 } from 'uuid';  // Import uuid to generate unique IDs
 
-// Initialize the auto-increment plugin
-autoIncrement.initialize(mongoose.connection);
+const { Schema } = mongoose;
 
 const eventSchema = new Schema({
-  eventId: { type: String, unique: true },
+  eventId: { type: String, unique: true, default: uuidv4 },  // Use UUID for eventId
   title: { type: String, required: true },
   description: String,
   club: { type: Schema.Types.ObjectId, ref: 'Club', required: true },
@@ -20,14 +19,6 @@ const eventSchema = new Schema({
   }]
 }, {
   timestamps: true
-});
-
-// Add auto-increment plugin to the eventId field
-eventSchema.plugin(autoIncrement.plugin, {
-  model: 'Event',
-  field: 'eventId',
-  startAt: 1,  // Start numbering from 1
-  incrementBy: 1  // Increment by 1
 });
 
 const Event = mongoose.model('Event', eventSchema);

@@ -1,3 +1,6 @@
+import mongoose from 'mongoose';
+const { Schema } = mongoose;
+
 const budgetRequestSchema = new Schema({
   club: { type: Schema.Types.ObjectId, ref: 'Club', required: true },
   event: { type: Schema.Types.ObjectId, ref: 'Event' },

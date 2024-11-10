@@ -1,3 +1,6 @@
+import mongoose from 'mongoose';
+const { Schema } = mongoose;
+
 const feedbackSchema = new Schema({
     event: { type: Schema.Types.ObjectId, ref: 'Event', required: true },
     user: { type: Schema.Types.ObjectId, ref: 'User' },
