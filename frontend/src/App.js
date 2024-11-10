@@ -19,6 +19,8 @@ import ClubList from './components/ClubList';
 import ClubDetails from './components/ClubDetails';
 import Report from './components/Report'; // Import your Report component
 import AdminTicketPage from './components/AdminTicketPage'; // Adjust the import path according to your file structure
+import AdminPage from './components/AdminPage';  // Admin Dashboard
+import AdminAnalyticsPage from './components/AdminAnalyticsPage';  // Admin Analytics Page
 
 function App() {
     return (
@@ -52,6 +54,8 @@ function App() {
                     <Route path="/club-details/:clubId" element={<ClubDetails />} />
                     <Route path="/reports" element={<Report />} /> {/* Route for Reports page */}
                     <Route path="/tickets" element={<AdminTicketPage />} />
+                    <Route path="/admin" element={<AdminPage />} />
+                    <Route path="/admin_analytics/:id" element={<AdminAnalyticsPage />} />
                 </Routes>
             </div>
         </Router>

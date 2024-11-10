@@ -6,7 +6,7 @@ function AdminTicketPage() {
             id: 1,
             title: 'Issue with website loading',
             description: 'The website is not loading properly on my browser.',
-            status: 'pending', // 'pending', 'accepted', 'rejected'
+            status: 'pending', // 'pending', 'accepted', 'rejected', 'closed'
             replies: [
                 { id: 1, text: 'We are investigating the issue.' },
                 { id: 2, text: 'The issue has been resolved. Please try again.' },
@@ -16,7 +16,7 @@ function AdminTicketPage() {
             id: 2,
             title: 'Login error',
             description: 'I cannot log in to my account.',
-            status: 'pending', // 'pending', 'accepted', 'rejected'
+            status: 'pending', // 'pending', 'accepted', 'rejected', 'closed'
             replies: [
                 { id: 3, text: 'Please reset your password.' },
             ],
@@ -45,7 +45,7 @@ function AdminTicketPage() {
             alert('Reply cannot be empty!');
             return;
         }
-        
+
         setTickets(tickets.map((ticket) =>
             ticket.id === ticketId
                 ? { 
@@ -63,10 +63,16 @@ function AdminTicketPage() {
         handleReply(ticketId);
     };
 
+    const handleCloseTicket = (ticketId) => {
+        setTickets(tickets.map((ticket) =>
+            ticket.id === ticketId ? { ...ticket, status: 'closed' } : ticket
+        ));
+    };
+
     return (
-        <div className="flex w-full h-screen bg-gray-900 backdrop-blur-sm bg-opacity-80">
-            {/* Ticket List (Left Side - Scrollable) */}
-            <div className="w-2/3 overflow-y-auto p-8 bg-gray-800 rounded-lg shadow-lg">
+        <div className="flex items-center justify-center w-full h-screen bg-gray-900 backdrop-blur-sm bg-opacity-80">
+            {/* Ticket List (Centered Content) */}
+            <div className="w-full max-w-3xl p-8 bg-gray-800 rounded-lg shadow-lg">
                 <h2 className="text-2xl font-semibold text-white mb-6">Ticket List</h2>
 
                 {/* Display Ticket List */}
@@ -113,21 +119,26 @@ function AdminTicketPage() {
                                 ))}
 
                                 {/* Admin Reply Form */}
-                                <form onSubmit={(e) => handleSubmitReply(e, ticket.id)}>
-                                    <textarea
-                                        className="w-full p-2 bg-gray-700 text-white rounded-md"
-                                        rows="4"
-                                        placeholder="Write a reply..."
-                                        value={replyText}
-                                        onChange={(e) => setReplyText(e.target.value)}
-                                    />
-                                    <button
-                                        type="submit"
-                                        className="mt-2 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-all duration-300"
-                                    >
-                                        Submit Reply
-                                    </button>
-                                </form>
+                                {ticket.status === 'accepted' && ticket.status !== 'closed' && (
+                                    <>
+                                        <form onSubmit={(e) => handleSubmitReply(e, ticket.id)}>
+                                            <textarea
+                                                className="w-full p-2 bg-gray-700 text-white rounded-md"
+                                                rows="4"
+                                                placeholder="Write a reply..."
+                                                value={replyText}
+                                                onChange={(e) => setReplyText(e.target.value)}
+                                            />
+                                            <button
+                                                type="submit"
+                                                className="mt-2 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-all duration-300"
+                                            >
+                                                Submit Reply
+                                            </button>
+                                        </form>
+                                    </>
+                                )}
+                                
 
                                 {/* Accept / Reject Ticket */}
                                 <div className="mt-4">
@@ -137,7 +148,7 @@ function AdminTicketPage() {
                                                 onClick={() => handleAccept(ticket.id)}
                                                 className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-all duration-300"
                                             >
-                                                Accept
+                                                Approve
                                             </button>
 
                                             <button
@@ -149,19 +160,21 @@ function AdminTicketPage() {
                                         </div>
                                     )}
                                     {ticket.status === 'accepted' && (
-                                        <button
-                                            className="px-4 py-2 bg-gray-600 text-white rounded-md cursor-not-allowed"
-                                            disabled
-                                        >
-                                            Accepted
-                                        </button>
+                                        <>
+                                            <button
+                                                onClick={() => handleCloseTicket(ticket.id)}
+                                                className="mt-4 px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-all duration-300"
+                                            >
+                                                Close Ticket
+                                            </button>
+                                        </>
                                     )}
-                                    {ticket.status === 'rejected' && (
+                                    {ticket.status === 'closed' && (
                                         <button
-                                            className="px-4 py-2 bg-gray-600 text-white rounded-md cursor-not-allowed"
+                                            className="mt-4 px-4 py-2 bg-gray-600 text-white rounded-md cursor-not-allowed"
                                             disabled
                                         >
-                                            Rejected
+                                            Ticket Closed
                                         </button>
                                     )}
                                 </div>

@@ -29,6 +29,9 @@ function ClubDashboard() {
     const handleTicketsClick = () => {
         navigate("/tickets");
     }; 
+    const handleAnalyticsClick = () => {
+        navigate("/admin");
+    }; 
 
     return (
         <div className="flex w-full h-screen bg-gray-900 backdrop-blur-sm bg-opacity-80">
@@ -61,7 +64,7 @@ function ClubDashboard() {
                     <DashboardCard color="from-gray-700 to-gray-600" title="Club List" onClick={handleClubClick}/>
                     <DashboardCard color="from-gray-700 to-gray-600" title="Reports" onClick={handleReportsClick}/>
                     <DashboardCard color="from-gray-700 to-gray-600" title="Tickets"  onClick={handleTicketsClick}/>
-                    <DashboardCard color="from-gray-700 to-gray-600" title="Analytics" />
+                    <DashboardCard color="from-gray-700 to-gray-600" title="Analytics" onClick={handleAnalyticsClick}/>
                 </div>
             </div>
 
