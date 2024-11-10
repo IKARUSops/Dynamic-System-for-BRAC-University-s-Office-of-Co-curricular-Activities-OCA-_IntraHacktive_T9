@@ -1,8 +1,8 @@
-const express = require('express');
+import express from 'express';
+
 const router = express.Router();
 
-router.get('/clubs', (req, res) => {
-    res.json({ message: 'Get all clubs' });
-});
+// Define your routes here, for example:
+router.get('/example', (req, res) => res.send('Example route'));
 
-module.exports = router;
+export default router;

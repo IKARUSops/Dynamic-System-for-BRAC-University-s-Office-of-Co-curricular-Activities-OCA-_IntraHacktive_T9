@@ -93,7 +93,9 @@ function OCADashboard() {
                 </div>
             </div>
 
+
             {/* Notification Sidebar (Right) */}
+
             <div
                 className={`notification-sidebar ${isNotificationSidebarOpen ? 'open' : ''}`}
                 onMouseEnter={() => setIsNotificationSidebarOpen(true)}  // Opens sidebar on hover
@@ -113,6 +115,7 @@ function OCADashboard() {
                     </div>
                 )}
             </div>
+
         </div>
     );
 }
