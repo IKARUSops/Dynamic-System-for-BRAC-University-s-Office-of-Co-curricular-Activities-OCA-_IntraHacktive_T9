@@ -15,3 +15,20 @@
     font-size: 2em;
     margin-bottom: 20px;
 }
+
+.carousel-content {
+    width: 500px; /* Set a card-like width */
+    height: 300px; /* Set a card-like height */
+    object-fit: cover; /* Ensures content scales without distortion */
+    border-radius: 10px; /* Adds rounded corners for a card effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    margin: 0 auto; /* Centers the cards within the carousel */
+    flex-direction: column;
+}
+
+.carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

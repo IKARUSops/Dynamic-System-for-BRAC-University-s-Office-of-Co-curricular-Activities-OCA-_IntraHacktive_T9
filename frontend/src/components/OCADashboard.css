@@ -1,0 +1,53 @@
+/* General Styles for Sidebar */
+.notification-sidebar {
+    position: fixed;
+    top: 20%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 200px;
+    background-color: #ffffff;
+    border-radius: 10px 0 0 10px;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Open state: Expanded Sidebar */
+.notification-sidebar.open {
+    width: 250px; /* Make the sidebar wider when opened */
+    height: 100%;
+    top: 50%;
+}
+
+/* Sidebar content */
+.notification-sidebar .notification-content {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notification-sidebar .notification-content p {
+    margin-bottom: 5px;
+}
+
+/* Hover effect on the notification icon */
+.notification-sidebar:hover {
+    background-color: #f1f1f1;
+}
+
+/* Notification icon rotation when sidebar is open */
+.notification-sidebar .text-3xl {
+    transition: transform 0.3s ease;
+}
+
+.notification-sidebar.open .text-3xl {
+    transform: rotate(360deg); /* Rotate the bell icon when sidebar is open */
+    top: 20%
+}

@@ -1,36 +1,35 @@
 // VisualsSection.js
 import React from 'react';
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import Slider from 'react-slick';
 import screenshot1 from '../assets/screenshot1.jpg';
 import screenshot2 from '../assets/screenshot2.jpg';
 import demoVideo from '../assets/demo.mp4';
 import './VisualsSection.css';
 
 const VisualsSection = () => {
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+    };
+
     return (
         <section id="visuals" className="home-section">
             <h2>How It Works</h2>
-            <Row xs={1} md={2} className="g-4">
-                <Col>
-                    <Card>
-                        <Card.Img variant="top" src={screenshot1} />
-                    </Card>
-                </Col>
-                <Col>
-                    <Card>
-                        <Card.Img variant="top" src={screenshot2} />
-                    </Card>
-                </Col>
-                <Col md={12}>
-                    <Card>
-                        <Card.Body>
-                            <video src={demoVideo} controls className="w-100"></video>
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
+            <Slider {...settings}>
+                <div className="carousel-item">
+                    <img className="carousel-content" src={screenshot1} alt="Screenshot 1" />
+                </div>
+                <div className="carousel-item">
+                    <img className="carousel-content" src={screenshot2} alt="Screenshot 2" />
+                </div>
+                <div className="carousel-item">
+                    <video className="carousel-content" src={demoVideo} controls></video>
+                </div>
+            </Slider>
         </section>
     );
 };
