@@ -1,8 +1,9 @@
 import express from "express";
-import cors from "cors";
 import records from "./routes/record.js";
 import dotenv from 'dotenv';
+import cors from 'cors';
 
+import clubRoutes from './routes/clubRoutes.js';
 
 dotenv.config();
 
@@ -15,10 +16,9 @@ app.use("/record", records);
 
 app.get('/', (req, res) => res.send('API is running...'));
 
-const clubRoutes = require('./routes/clubRoutes');
 app.use('/api', clubRoutes);
 
-// start the Express server
+// Start the Express server
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
