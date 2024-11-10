@@ -15,7 +15,8 @@ import AdminEventDetailsPage from './components/event_detail_oca';
 import TicketPage from './components/TicketPage';
 import ReportForm from './components/ReportForm'; // Import Report Form
 import DataAnalytics from './components/DataAnalytics'; // Import Data Analytics Page
-
+import ClubList from './components/ClubList';
+import ClubDetails from './components/ClubDetails';
 
 function App() {
     return (
@@ -23,7 +24,7 @@ function App() {
             <div className="app-container">
                 <CustomNavbar />
                 <Routes>
-                    
+
                     <Route path="/" element={<Home />} />
                     <Route path="/ocadashboar" element={<OCADashboard />} />
                     <Route path="/ClubDashboard" element={<ClubDashboardDashboard />} />
@@ -45,6 +46,8 @@ function App() {
                     <Route path="/ticket-page" element={<TicketPage />} />
                     <Route path="/report-form" element={<ReportForm />} />
                     <Route path="/data-analytics" element={<DataAnalytics />} />
+                    <Route path="/club-details" element={<ClubList />} />
+                    <Route path="/club-details/:clubId" element={<ClubDetails />} />
                 </Routes>
             </div>
         </Router>

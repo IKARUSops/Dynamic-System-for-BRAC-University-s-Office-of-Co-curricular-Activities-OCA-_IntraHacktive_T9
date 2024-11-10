@@ -20,8 +20,8 @@ function ClubDashboard() {
         navigate("/event_oca");
     };
 
-    const handleRequestClick = () => {
-        navigate("/request_oca");
+    const handleClubClick = () => {
+        navigate("/club-details");
     };   
 
     return (
@@ -52,7 +52,7 @@ function ClubDashboard() {
             <div className="main-content w-full h-full flex items-center justify-center p-0">
                 <div className="grid h-full w-full grid-cols-4 grid-rows-3 gap-3 p-12 xl:m-64 lg:m-32 md:m-16">
                     <DashboardCard color="from-gray-700 to-gray-600" title="Events" onClick={handleEventClick} />
-                    <DashboardCard color="from-gray-700 to-gray-600" title="Request" onClick={handleRequestClick}/>
+                    <DashboardCard color="from-gray-700 to-gray-600" title="Club List" onClick={handleClubClick}/>
                     <DashboardCard color="from-gray-700 to-gray-600" title="Room Booking" />
                     <DashboardCard color="from-gray-700 to-gray-600" title="Budget" />
                     <DashboardCard color="from-gray-700 to-gray-600" title="Analytics" />
