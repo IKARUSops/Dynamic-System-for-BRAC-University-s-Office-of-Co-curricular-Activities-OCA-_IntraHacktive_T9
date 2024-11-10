@@ -3,7 +3,7 @@ import { FaHome, FaCog, FaUser, FaEnvelope, FaQuestionCircle, FaBell, FaSignOutA
 import './OCADashboard.css';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
-function OCADashboard() {
+function ClubDashboard() {
     const [isNotificationSidebarOpen, setIsNotificationSidebarOpen] = useState(false);
     const navigate = useNavigate(); // Use useNavigate instead of useHistory
 
@@ -117,4 +117,4 @@ function OCADashboard() {
     );
 }
 
-export default OCADashboard;
+export default ClubDashboard;
