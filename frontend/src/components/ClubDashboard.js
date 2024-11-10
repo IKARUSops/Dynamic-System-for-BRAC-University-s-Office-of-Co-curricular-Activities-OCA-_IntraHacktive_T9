@@ -24,8 +24,11 @@ function ClubDashboard() {
         navigate("/request_club");
     };   
 
-    const handleSeeTicketsClick = () => {
-        navigate("/ticket-form");
+    const handleSendReportClick = () => {
+        navigate("/report-form");
+    }; 
+    const handleDataClick = () => {
+        navigate("/data-analytics");
     }; 
     const handleSendTicketClick = () => {
         navigate("/ticket-page");
@@ -61,8 +64,8 @@ function ClubDashboard() {
                     <DashboardCard color="from-gray-700 to-gray-600" title="Events" onClick={handleEventClick} />
                     <DashboardCard color="from-gray-700 to-gray-600" title="Request" onClick={handleRequestClick}/>
                     <DashboardCard color="from-gray-700 to-gray-600" title="Tickets" onClick={handleSendTicketClick}/>
-                    <DashboardCard color="from-gray-700 to-gray-600" title="See Tickets" onClick={handleSeeTicketsClick}/>
-                    <DashboardCard color="from-gray-700 to-gray-600" title="Analytics" />
+                    <DashboardCard color="from-gray-700 to-gray-600" title="Send Report" onClick={handleSendReportClick}/>
+                    <DashboardCard color="from-gray-700 to-gray-600" title="Analytics" onClick={handleDataClick}/>
                 </div>
             </div>
 

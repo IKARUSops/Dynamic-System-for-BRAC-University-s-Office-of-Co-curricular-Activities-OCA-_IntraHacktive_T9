@@ -13,7 +13,8 @@ import RequestDetailsPage from './components/reques_club_detail';
 import AdminEventPage from './components/event_oca';
 import AdminEventDetailsPage from './components/event_detail_oca';
 import TicketPage from './components/TicketPage';
-
+import ReportForm from './components/ReportForm'; // Import Report Form
+import DataAnalytics from './components/DataAnalytics'; // Import Data Analytics Page
 
 
 function App() {
@@ -41,6 +42,8 @@ function App() {
                     <Route path="/event_oca" element={<AdminEventPage />} />
                     {/* Route for Ticket List Page */}
                     <Route path="/ticket-page" element={<TicketPage />} />
+                    <Route path="/report-form" element={<ReportForm />} />
+                    <Route path="/data-analytics" element={<DataAnalytics />} />
                 </Routes>
             </div>
         </Router>
