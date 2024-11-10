@@ -14,7 +14,7 @@ const Auth = () => {
             if (isClub) {
                 navigate('/ClubDashboard');
             } else {
-                navigate('/OCADashboard');
+                navigate('/OCADashboar');
             }
         } else {
             alert('Invalid credentials');
