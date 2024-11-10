@@ -12,7 +12,7 @@ import RequestsPage from './components/request_club';
 import RequestDetailsPage from './components/reques_club_detail';
 import AdminEventPage from './components/event_oca';
 import AdminEventDetailsPage from './components/event_detail_oca';
-
+import TicketPage from './components/TicketPage';
 
 
 
@@ -39,6 +39,8 @@ function App() {
 
                     {/* Event Form Page - For submitting event requests */}
                     <Route path="/event_oca" element={<AdminEventPage />} />
+                    {/* Route for Ticket List Page */}
+                    <Route path="/ticket-page" element={<TicketPage />} />
                 </Routes>
             </div>
         </Router>
