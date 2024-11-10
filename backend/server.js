@@ -13,6 +13,11 @@ app.use(cors());
 app.use(express.json());
 app.use("/record", records);
 
+app.get('/', (req, res) => res.send('API is running...'));
+
+const clubRoutes = require('./routes/clubRoutes');
+app.use('/api', clubRoutes);
+
 // start the Express server
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
