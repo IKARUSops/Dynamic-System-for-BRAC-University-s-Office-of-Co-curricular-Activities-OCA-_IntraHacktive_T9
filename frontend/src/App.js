@@ -27,7 +27,7 @@ function App() {
                     <Route path="/event_club" element={<EventForm />} />
                     <Route path="/budget" element={<BudgetForm />} />
                     <Route path="/request_club" element={<RequestsPage />} />
-                    <Route path="/reques_club_detail" element={<RequestDetailsPage />} />
+                    <Route path="/reques_club_detail/:requestId" element={<RequestDetailsPage />} />
                 </Routes>
             </div>
         </Router>

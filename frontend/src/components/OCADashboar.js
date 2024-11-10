@@ -17,11 +17,11 @@ function ClubDashboard() {
     };
 
     const handleEventClick = () => {
-        navigate("/event_club");
+        navigate("/event_oca");
     };
 
     const handleRequestClick = () => {
-        navigate("/request_club");
+        navigate("/request_oca");
     };   
 
     return (
