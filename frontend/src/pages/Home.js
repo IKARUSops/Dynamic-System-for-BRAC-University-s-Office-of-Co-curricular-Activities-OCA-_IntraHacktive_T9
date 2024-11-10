@@ -4,6 +4,10 @@ import Slideshow from '../components/Slideshow';
 import Testimonials from '../components/Testimonials';
 import VisualsSection from '../components/VisualsSection';
 import OCADashboard from '../components/OCADashboar';
+import ImageWithText from '../components/Dsp'
+import ImageOnRightTextOnLeft from '../components/Dsp_copy'
+import HeroSection from '../components/hero.js'
+import Footer from '../components/footer.js'
 
 
 
@@ -17,15 +21,19 @@ function Home() {
 
             
             <header className="home-header">
-                <h1>Streamline Your Club Activities with BRAC University's OCA System</h1>
-                <p>Our dynamic system simplifies event management, room booking, and budget tracking for all BRAC University clubs. Say goodbye to delays and inefficiencies!</p>
-                
+                <HeroSection />
             </header>
             {/* <OCADashboard /> */}
             <div id="features" className="home-section">
                 <h2>Features</h2>
                 
                 <Slideshow />
+            </div>
+            <div id="dsp" className="home-section">
+                <ImageWithText />
+            </div>
+            <div id="dsp" className="home-section">
+                <ImageOnRightTextOnLeft />
             </div>
             <div id="visuals" className="home-section">
               
@@ -36,8 +44,9 @@ function Home() {
                 <h2>What Our Users Say</h2>
                 <Testimonials />
             </div>
+            
             <footer className="home-footer">
-                <p>&copy; 2024 BRAC University. All rights reserved.</p>
+                <Footer />
             </footer>
         </div>
     );
