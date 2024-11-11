@@ -1,40 +1,14 @@
 import React, { useState } from 'react';
-import axios from 'axios';  // Import axios for making HTTP requests
 
 const ClubLogin = ({ onLogin }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');  // State to manage error messages
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-
-        try {
-            // Make a POST request to the backend API for login
-            const response = await axios.post('http://localhost:5050/api/login/club', {
-                username,
-                password,
-            });
-
-            // If login is successful, store the token in localStorage (or handle it however you like)
-            const { token, user } = response.data;
-            localStorage.setItem('token', token);  // Store JWT in localStorage
-            onLogin(true);  // Notify parent component about successful login
-
-            // Optionally, save user details to localStorage or Context API if you want to persist user state
-            localStorage.setItem('user', JSON.stringify(user));
-
-        } catch (error) {
-            // Handle errors such as incorrect username or password
-            if (error.response) {
-                // Server responded with an error
-                setError(error.response.data.message);
-            } else {
-                // Network or other errors
-                setError('An error occurred. Please try again later.');
-            }
-            onLogin(false);  // Notify parent component about failed login
-        }
+        // Add your authentication logic here
+        const isAuthenticated = username === 'clubuser' && password === 'password';
+        onLogin(isAuthenticated);
     };
 
     return (
@@ -92,9 +66,6 @@ const ClubLogin = ({ onLogin }) => {
                                 />
                             </div>
                         </div>
-                        {error && (
-                            <div className="text-red-500 text-sm mt-2">{error}</div>
-                        )}
                         <div>
                             <button
                                 type="submit"
@@ -104,6 +75,7 @@ const ClubLogin = ({ onLogin }) => {
                             </button>
                         </div>
                     </form>
+                    
                 </div>
             </div>
         </div>

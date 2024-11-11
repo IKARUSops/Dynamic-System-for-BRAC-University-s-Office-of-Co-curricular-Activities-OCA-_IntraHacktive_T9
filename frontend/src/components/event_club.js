@@ -4,22 +4,43 @@ import { useNavigate } from 'react-router-dom';
 import './OCADashboard.css';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import axios from 'axios';  // For making API requests
 
 function EventForm() {
     const [eventType, setEventType] = useState('');
     const [roomNumber, setRoomNumber] = useState('');
     const [description, setDescription] = useState('');
-    const [date, setDate] = useState(null); // Initialize with null for date picker
-    const [startTime, setStartTime] = useState('');  // Start time state
-    const [endTime, setEndTime] = useState('');      // End time state
+    const [date, setDate] = useState(null);
+    const [startTime, setStartTime] = useState('');
+    const [endTime, setEndTime] = useState('');
     const navigate = useNavigate();
 
-    const handleNext = () => {
-        // Navigate to the budget page
-        navigate('/budget');
+    const handleSubmit = async () => {
+        try {
+            // Prepare event data
+            const eventData = {
+                title: eventType,
+                description,
+                club: 'some-club-id',  // Set the appropriate club ID (you can fetch from state or context)
+                status: 'pending',  // Set event status (default: 'pending')
+                date,
+                venue: roomNumber,  // Assuming roomNumber corresponds to the room ID
+                budget: 1000,  // Adjust budget as necessary
+                feedback: [],  // Adjust feedback as necessary
+                timeline: []  // Adjust timeline as necessary
+            };
+
+            // Make API call to create event
+            const response = await axios.post('/api/events', eventData);
+            console.log(response.data);
+
+            // Navigate to the budget page after successful submission
+            navigate('/budget');
+        } catch (error) {
+            console.error('Error creating event:', error);
+        }
     };
 
-    // Time options from 8 AM to 9 PM (hourly)
     const timeOptions = [
         '08:00 AM', '09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM', '02:00 PM',
         '03:00 PM', '04:00 PM', '05:00 PM', '06:00 PM', '07:00 PM', '08:00 PM', '09:00 PM'
@@ -33,7 +54,7 @@ function EventForm() {
                     Dashboard
                 </div>
                 <div className="flex flex-col items-start space-y-6 mt-6">
-                    {/* Your sidebar items here */}
+                    {/* Sidebar items */}
                 </div>
             </div>
 
@@ -143,13 +164,13 @@ function EventForm() {
                         </select>
                     </div>
 
-                    {/* Next Button */}
+                    {/* Submit Button */}
                     <div className="flex justify-end mt-6">
                         <button
-                            onClick={handleNext}
+                            onClick={handleSubmit}
                             className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300"
                         >
-                            <span>Next</span>
+                            <span>Submit</span>
                             <FaArrowRight className="ml-2" />
                         </button>
                     </div>
@@ -157,7 +178,6 @@ function EventForm() {
             </div>
 
             {/* Notification Sidebar (Right) */}
-            {/* Notification sidebar and Calendar sidebar as in the previous code */}
         </div>
     );
 }
