@@ -3,6 +3,7 @@
 ## Project Overview
 This University Club Management System is designed to enhance collaboration, streamline event management, and simplify communication between the Office of Club Administration (OCA) and university clubs. By replacing manual processes with a centralized digital hub, this system addresses common pain points in event approval, communication, room booking, budget tracking, and data insights, ultimately improving efficiency and transparency.
 
+## Youtube Video
 [![Watch the video](https://img.youtube.com/vi/K8Ayq7HJRLU/0.jpg)](https://youtu.be/K8Ayq7HJRLU?si=hy68WHagcy37USfa)
 
 ## Features Implemented
